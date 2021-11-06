@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- <link rel="stylesheet" href="css/font.css"> -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>그리너 홈페이지</title>
+</head>
+<body>
+    <div class="page-container">
+        <header id="header" class="main-header">
+            <a href="#" class="header__logo"><img src="img/logo-green.png" alt="로고"></a>
+            <nav id="nav">
+                <ul class="nav__menu">
+                    <li><a href="#">브랜드</a></li>
+                    <li><a href="#">메뉴</a></li>
+                    <li><a href="#">새소식</a></li>
+                    <li><a href="#">매장찾기</a></li>
+                    <li><a href="#">가맹문의</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="slide-container">
+                <ul class="slide clearfix">
+                    <li><a href="#"><img src="img/slide_01.jpg" alt="샐러드 메뉴 보러가기"></a></li>
+                    <li><a href="#"><img src="img/slide_02.jpg" alt="리사이클 캠페인 공지"></a></li>
+                    <li><a href="#"><img src="img/slide_03.jpg" alt="토핑 메뉴 소개 보러가기"></a></li>
+                </ul>
+                <ul class="slide__bullets">
+                    <li><a class="bullet active" href="#">01</a></li>
+                    <li><a class="bullet" href="#">02</a></li>
+                    <li><a class="bullet" href="#">03</a></li>
+                </ul>
+            </section>
+            <section class="popular-menu">
+                <div class="popular-menu__info">
+                    <h2 class="popular-menu__title">인기메뉴</h2>
+                    <ul class="popular-menu__tabs">
+                        <li class="popular-menu__tab active"><a href="#">샐러드</a></li>
+                        <li class="popular-menu__tab"><a href="#">부리또</a></li>
+                        <li class="popular-menu__tab"><a href="#">음료수</a></li>
+                    </ul>
+                </div>
+                <!--popular-menu__info  -->
+                <div class="popular-menu__slide">
+                    <div class="popular-menu__slide__btns">
+                        <button class="slide-btn prev-btn">
+                            <span class="material-icons">
+                                arrow_back_ios
+                                </span>
+                        </button>
+                        <button class="slide-btn next-btn">
+                            <span class="material-icons">
+                                arrow_forward_ios
+                                </span>
+                        </button>
+                    </div>
+                    <div class="popular-menu__slide-container">
+                        <ul class="popular-menu__slide__items">
+                            <li>
+                                <figure>
+                                    <img src="img/salad_01.png" alt="연어아보카도샐러드">
+                                    <figcaption>연어 & 아보카도</figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <img src="img/salad_02.png" alt="스윗 단호박 두부 샐러드">
+                                    <figcaption>스윗 단호박 두부</figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <img src="img/salad_03.png" alt="그릴드 머쉬룸 샐러드">
+                                    <figcaption>그릴드 머쉬룸</figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <img src="img/salad_04.png" alt="우삼겹 샐러드">
+                                    <figcaption>우삼겹 샐러드</figcaption>
+                                </figure>
+                            </li>
+                            <li>
+                                <figure>
+                                    <img src="img/salad_05.png" alt="트리니티 샐러드">
+                                    <figcaption>트리니티 샐러드</figcaption>
+                                </figure>
+                            </li>
+                        </ul>
+        
+                    </div>
+                    <!-- popular-menu__slide-container -->
+                </div>
+                <!-- popular-menu__slide -->
+            </section>
+
+            <section class="banner-box">
+                <article class="notice">
+                    <h3>새소식</h3>
+                    <ul class="notice__links">
+                        <li><a href="#">그리너 광주 진월점 오픈</a></li>
+                        <li><a href="#">리사이클 캠페인 참여방법 안내</a></li>
+                        <li><a href="#">키오스크 멤버쉽 제도 개설 안내</a></li>
+                        <li><a href="#">브랜드 디자이너 채용 공고</a></li>
+                    </ul>
+                    <button class="more-btn">
+                        more
+                    </button>
+                </article>
+                <article class="banner-howto">
+                        <h3 class="banner-howto__title">HOW TO EAT</h3>
+                        <span class="banner-howto__subtitle">그리너 샐러드 먹는 법</span>
+                        <button class="more-btn">
+                            more
+                        </button>
+                </article>
+                <article class="banner-membership">
+                    <a href="#"><img src="img/banner_vip.png" alt="NEW MEMBERSHIP SYSTEM 그리너의 멤버십 제도가 변경됩니다."></a>
+                </article>
+            </section>
+
+            <section class="insta-thumbnails">
+                <figure>
+                    <img src="img/icon-insta.png" alt="인스타 메뉴">
+                </figure>
+                <ul class="insta-thumbnails__list">
+                    <li class="insta-thumbnails__item">인스타 썸네일1</li>
+                    <li class="insta-thumbnails__item">인스타 썸네일2</li>
+                    <li class="insta-thumbnails__item">인스타 썸네일3</li>
+                    <li class="insta-thumbnails__item">인스타 썸네일4</li>
+                    <li class="insta-thumbnails__item">인스타 썸네일5</li>
+                    <li class="insta-thumbnails__item">인스타 썸네일6</li>
+                    <li class="insta-thumbnails__item">인스타 썸네일7</li>
+                    <li class="insta-thumbnails__item">인스타 썸네일8</li>
+                    <li class="insta-thumbnails__item">인스타 썸네일9</li>
+                    <li class="insta-thumbnails__item">인스타 썸네일10</li>
+                    <li class="insta-thumbnails__item">인스타 썸네일11</li>
+                    <li class="insta-thumbnails__item">인스타 썸네일12</li>
+                </ul>
+                <div class="row-container">
+                    <button class="more-btn">
+                        more
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer id="footer">
+            <figure>
+                <img src="img/logo-white.png" alt="그리너 로고">
+            </figure>
+            <ul class="footer__menu">
+                <li><a href="#">브랜드</a></li>
+                <li><a href="#">메뉴</a></li>
+                <li><a href="#">새소식</a></li>
+                <li><a href="#">매장찾기</a></li>
+                <li><a href="#">가맹문의</a></li>
+            </ul>
+            <ul class="footer__info">
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+            </ul>
+            <address class="footer__address">
+                <ul>
+                    <li>서울 마포구 양화로23길22-6 7-8층</li>
+                    <li>전화: 1577-0971</li>
+                    <li>greener FnB</li>
+                    <li>Business name. (주)그리너에프엔비</li>
+                </ul>
+            </address>
+            <span class="footer__copyright">
+                Copyright 2021. greener All rights reserved.
+            </span>
+            <ul class="footer__sns">
+                <li><a href="#"><img src="img/icon-insta_mini.png" alt="인스타 바로가기 아이콘"></a></li>
+                <li><a href="#"><img src="img/icon-call.png" alt="전화걸기 아이콘"></a></li>
+            </ul>
+        </footer>
+
+    </div>
+    <!-- page-container -->
+</body>
+</html>
