@@ -4,6 +4,7 @@
 }
 html {
   color: white;
+  font-family:"Pretendard-Regular",sans-serif;
 }
 .page-container {
   display: flex;
@@ -33,13 +34,16 @@ nav {
   display: flex;
 }
 .nav__menu > li > a {
+  font-weight: 600;
   padding: 1.5em;
+}
+.nav__menu > li:not(:first-child){
+  margin-left: 2em;
 }
 /* 메인슬라이드 */
 .slide-container {
   position: relative;
   width: 1920px;
-  height: 480px;
   overflow: hidden;
 }
 .clearfix::after {
@@ -48,8 +52,7 @@ nav {
   clear: both;
 }
 .slide {
-  position: absolute;
-  left: -100%;
+  margin-left: 0;
   width: 300%;
 }
 .slide > li {
@@ -73,6 +76,9 @@ nav {
   color: transparent;
   z-index: 5;
 }
+.slide__bullets .active {
+  background-color: white;
+}
 /* 인기메뉴 */
 .popular-menu {
   color: var(--black);
@@ -86,18 +92,36 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  min-width: 75rem;
+  min-width: 1200px;
   padding: 2rem;
 }
 .popular-menu__title {
   color: var(--green);
+  font-family: 'Pretendard-Black';
   font-size: 3rem;
+  letter-spacing: 0.05rem;
 }
 .popular-menu__tabs {
   display: flex;
 }
+.popular-menu__tab {
+  position: relative;
+  font-weight: 600;
+}
+.popular-menu__tabs .active {
+  color: var(--green);
+}
 .popular-menu__tab:not(:first-child) {
-  margin-left: 0.5em;
+  margin-left: 1.5em;
+}
+.marker-left::before {
+  display: block;
+  content: "";
+  position: absolute;
+  left: -0.75em;
+  width: 2px;
+  height: 100%;
+  background-color: var(--green);
 }
 .popular-menu__slide {
   position: relative;
@@ -109,7 +133,7 @@ nav {
 }
 .popular-menu__slide-container {
   position: relative;
-  width: 75rem;
+  width: 1200px;
   height: 100%;
   overflow: hidden;
 }
@@ -135,6 +159,10 @@ nav {
   top: 50%;
   transform: translateY(-50%);
   border: none;
+  background: transparent;
+  padding: 3em;
+  cursor: pointer;
+  opacity: 0.5;
 }
 .prev-btn {
   left: 15rem;
@@ -142,18 +170,34 @@ nav {
 .next-btn {
   right: 15rem;
 }
+.slide-btn .material-icons {
+  font-size: 48px;
+}
+.popular-menu__slide__items figcaption {
+  line-height: 3.5;
+  font-size: 1.25rem;
+  font-weight: 600;
+
+}
 .banner-box {
   margin: 7.5rem auto 0 auto;
   display: flex;
   justify-content: space-between;
-  width: 75rem;
+  width: 1200px;
   flex-wrap: wrap;
 }
+/* 새소식 */
 .notice {
+  display: flex;
   background-color: var(--green);
   width: 42.5rem;
   height: 21.25rem;
   border-radius: 1.875rem 0;
+}
+.notice > h3 {
+  font-size: 50px;
+  font-family: 'Pretendard-Black';
+  letter-spacing: 0.05em;
 }
 .banner-howto {
   width: 28.75rem;
@@ -172,12 +216,12 @@ nav {
 .insta-thumbnails {
   display: flex;
   justify-content: center;
-  width: 75rem;
+  width: 1200px;
   margin: 7.5rem auto;
   flex-wrap: wrap;
 }
 .insta-thumbnails__list {
-  padding: 3rem 2.5rem;
+  padding: 3rem 0;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -185,7 +229,7 @@ nav {
 .insta-thumbnails__item {
   width: 11.25rem;
   height: 11.25rem;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.25em;
   color: transparent;
   background-color: var(--green);
 }

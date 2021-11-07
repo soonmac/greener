@@ -1,0 +1,39 @@
+/* 메인슬라이드 */
+.slide-container {
+  position: relative;
+  width: 1920px;
+  overflow: hidden;
+}
+.clearfix::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+.slide {
+  margin-left: 0;
+  width: 300%;
+}
+.slide > li {
+  float: left;
+}
+.slide__bullets {
+  position: absolute;
+  left: 50%;
+  bottom: 2em;
+  transform: translateX(-50%);
+}
+.slide__bullets > li {
+  float: left;
+  margin: 0 5px;
+}
+.bullet {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(192, 192, 192);
+  border-radius: 50%;
+  color: transparent;
+  z-index: 5;
+}
+.slide__bullets .active {
+  background-color: $color--white;
+}

@@ -1,0 +1,63 @@
+.insta-thumbnails {
+  display: flex;
+  justify-content: center;
+  width: 1200px;
+  margin: 10rem auto;
+  flex-wrap: wrap;
+}
+.insta-thumbnails__list {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.insta-thumbnails__item {
+  width: 11.25rem;
+  height: 11.25rem;
+  margin-bottom: 1.25em;
+  color: transparent;
+  background: $color--green;
+  user-select: none;
+  &:first-child {
+    @include background("thumbnail_01.jpg");
+  }
+  &:nth-child(2) {
+    @include background("thumbnail_02.jpg");
+  }
+  &:nth-child(3) {
+    @include background("thumbnail_03.jpg");
+  }
+  &:nth-child(4) {
+    @include background("thumbnail_04.jpg");
+  }
+  &:nth-child(5) {
+    @include background("thumbnail_05.jpg");
+  }
+  &:nth-child(6) {
+    @include background("thumbnail_06.jpg");
+  }
+  &:nth-child(7) {
+    @include background("thumbnail_07.jpg");
+  }
+  &:nth-child(8) {
+    @include background("thumbnail_08.jpg");
+  }
+  &:nth-child(9) {
+    @include background("thumbnail_09.jpg");
+  }
+  &:nth-child(10) {
+    @include background("thumbnail_10.jpg");
+  }
+  &:nth-child(11) {
+    @include background("thumbnail_11.jpg");
+  }
+  &:nth-child(12) {
+    @include background("thumbnail_12.jpg");
+  }
+}
+.row-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}

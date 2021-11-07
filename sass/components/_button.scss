@@ -1,0 +1,15 @@
+.notice .more-btn {
+  @include more-btn(1);
+  position: absolute;
+  bottom: 2em;
+  right: 3em;
+}
+.banner-howto .more-btn {
+  @include more-btn(2);
+  @extend %rowCenter;
+  bottom: 1em;
+}
+.insta-thumbnails .more-btn {
+  @include more-btn(2);
+  color: $color--green;
+}
