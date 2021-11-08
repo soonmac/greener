@@ -22,7 +22,7 @@
 }
 .popular-menu__tabs {
   display: flex;
-  .active {
+  .on {
     color: $color--green;
   }
 }
@@ -39,6 +39,7 @@
   display: flex;
   justify-content: center;
   width: 100vw;
+  min-width: 1200px;
   height: 22.813rem;
   background-color: $color--gray;
 }
@@ -53,6 +54,7 @@
   @extend %colCenter;
   left: 2em;
   li {
+    position: relative;
     float: left;
     &:not(:first-child) {
       margin-left: 11.5rem;
@@ -63,6 +65,30 @@
       font-size: 1.25rem;
       font-weight: 600;
     }
+    .popular-menu__slide__items__more-btn {
+      position: absolute;
+      @extend %centerflex;
+      @extend %center;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: $color--green;
+      border: none;
+      cursor: pointer;
+      display: none;
+    }
+    .material-icons {
+      font-size: 36px;
+      color: $color--white;
+    }
+    &:hover figure {
+      img {
+        opacity: 0.5;
+      }
+      .popular-menu__slide__items__more-btn {
+        display: block;
+      }
+    }
   }
 }
 .slide-btn {
@@ -70,12 +96,15 @@
   @extend %colCenter;
   border: none;
   background: transparent;
-  padding: 3em;
+  padding: 1em;
   cursor: pointer;
   opacity: 0.5;
-  transition: 0.3s;
+  transition: 0.2s;
+  border-radius: 50%;
   &:hover {
     opacity: 1;
+    background: $color--green;
+    color: $color--white;
   }
 }
 .prev-btn {

@@ -7,3 +7,19 @@
 .header__logo {
   margin: 1em 0;
 }
+
+.sub-header {
+  position: relative;
+  hgroup {
+    text-align: center;
+    @extend %center;
+    .sub-header__title {
+      font-size: 3.75rem;
+      font-weight: 600;
+    }
+    .sub-header__subtitle {
+      margin-top: 1.5em;
+      font-size: 1.2rem;
+    }
+  }
+}

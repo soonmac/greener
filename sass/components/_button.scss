@@ -3,13 +3,16 @@
   position: absolute;
   bottom: 2em;
   right: 3em;
+  @include more-btn--hover($color--white);
 }
 .banner-howto .more-btn {
   @include more-btn(2);
   @extend %rowCenter;
   bottom: 1em;
+  @include more-btn--hover($color--white);
 }
 .insta-thumbnails .more-btn {
   @include more-btn(2);
   color: $color--green;
+  @include more-btn--hover($color--green);
 }

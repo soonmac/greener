@@ -9,13 +9,45 @@ nav {
   .nav__menu {
     display: flex;
 
-    li {
+    & > li {
+      position: relative;
       &:not(:first-child) {
         margin-left: 2em;
       }
-      a {
+      & > a {
         font-weight: 600;
         padding: 1.5em;
+      }
+      &:hover {
+        color: $color--purple;
+        .nav__submenu {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+  .nav__submenu {
+    transition: 200ms ease-in-out;
+    transform: translateY(20px);
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    width: max-content;
+    z-index: 9;
+    background-color: $color--white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    overflow: hidden;
+    li {
+      a {
+        padding: 1.5em 1em;
+        letter-spacing: 0.05rem;
+        color: $color--black;
+        border-bottom: 1px solid rgba($color--black, 0.5);
+      }
+      &:hover a {
+        background-color: $color--green;
+        color: $color--white;
       }
     }
   }

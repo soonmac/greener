@@ -25,9 +25,20 @@ $imgpath: "./../img/";
   font-size: calc(1em * #{$num});
   font-weight: bold;
   cursor: pointer;
+  transition: 0.3s;
   .material-icons {
     margin-left: calc(3px * #{$num});
     font-size: calc(24px * #{$num});
+    transition: 0.3s;
+  }
+}
+@mixin more-btn--hover($col) {
+  &:hover {
+    color: rgba($col, $alpha: 0.5);
+    .material-icons {
+      color: $col;
+      transform: translateX(20%);
+    }
   }
 }
 @mixin background($filename) {
@@ -48,4 +59,9 @@ $imgpath: "./../img/";
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+%centerflex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

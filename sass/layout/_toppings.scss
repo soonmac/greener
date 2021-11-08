@@ -1,0 +1,82 @@
+.food-category {
+  width: 100vw;
+  @extend %centerflex;
+  background: $color--white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  .food-category__list {
+    display: flex;
+    li {
+      color: gray;
+      font-weight: bold;
+      padding: 1em;
+      &:last-child {
+        margin-left: 1.5em;
+      }
+    }
+    .on {
+      color: $color--green;
+    }
+  }
+}
+.topping-category {
+  position: relative;
+  @extend %centerflex;
+  background: $color--green;
+  letter-spacing: 0.05rem;
+  padding: 0.5em 1.5em;
+  .material-icons {
+    font-size: 24px;
+  }
+  &:hover {
+    .topping-category__list {
+      display: block;
+    }
+  }
+}
+.topping-category__list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  text-align: center;
+  background: $color--green;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  li {
+    padding: 1em 0;
+    border-top: 1px solid rgba($color--white, 0.2);
+    &:hover {
+      background: darken($color--green, 5%);
+    }
+  }
+}
+.toppings__container {
+  width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 12em;
+}
+.toppings__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .toppings__list__item {
+    @extend %centerflex;
+    width: 32%;
+    padding: 1.5em;
+    margin-bottom: 2em;
+    background: $color--white;
+    box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+    .topping-category__list__info {
+      text-align: center;
+      margin-top: 1em;
+      h3 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: $color--black;
+      }
+      h5 {
+        margin-top: 0.5rem;
+        color: $color--green;
+      }
+    }
+  }
+}

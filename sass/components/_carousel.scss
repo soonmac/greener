@@ -3,6 +3,7 @@
   position: relative;
   width: 1920px;
   overflow: hidden;
+  margin: 0 auto;
 }
 .clearfix::after {
   display: block;
@@ -12,28 +13,30 @@
 .slide {
   margin-left: 0;
   width: 300%;
+  li {
+    float: left;
+  }
 }
-.slide > li {
-  float: left;
-}
+
 .slide__bullets {
-  position: absolute;
-  left: 50%;
-  bottom: 2em;
-  transform: translateX(-50%);
-}
-.slide__bullets > li {
-  float: left;
-  margin: 0 5px;
-}
-.bullet {
-  width: 10px;
-  height: 10px;
-  background-color: rgb(192, 192, 192);
-  border-radius: 50%;
-  color: transparent;
-  z-index: 5;
-}
-.slide__bullets .active {
-  background-color: $color--white;
+  @extend %rowCenter;
+  bottom: 1em;
+  li {
+    float: left;
+    margin: 0 10px;
+  }
+  .bullet {
+    width: 15px;
+    height: 15px;
+    background-color: $color--white;
+    border-radius: 50%;
+    color: transparent;
+    z-index: 5;
+    transition: 0.3s;
+  }
+  .active {
+    width: 45px;
+    background-color: $color--purple;
+    border-radius: 20px;
+  }
 }

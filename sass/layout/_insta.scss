@@ -13,12 +13,12 @@
 }
 
 .insta-thumbnails__item {
+  position: relative;
   width: 11.25rem;
   height: 11.25rem;
   margin-bottom: 1.25em;
-  color: transparent;
+  color: $color--white;
   background: $color--green;
-  user-select: none;
   &:first-child {
     @include background("thumbnail_01.jpg");
   }
@@ -55,9 +55,22 @@
   &:nth-child(12) {
     @include background("thumbnail_12.jpg");
   }
-}
-.row-container {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
+  .item__info {
+    position: absolute;
+    @extend %center;
+    width: 100%;
+    height: 100%;
+    @extend %centerflex;
+    z-index: 5;
+    background-color: rgba($color--white, $alpha: 0.15);
+
+    .material-icons:nth-child(2) {
+      margin-left: 1rem;
+    }
+    transition: 0.3s;
+    opacity: 0;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
