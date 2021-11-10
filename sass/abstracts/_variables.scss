@@ -34,7 +34,6 @@ $imgpath: "./../img/";
 }
 @mixin more-btn--hover($col) {
   &:hover {
-    color: rgba($col, $alpha: 0.5);
     .material-icons {
       color: $col;
       transform: translateX(20%);

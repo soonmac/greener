@@ -62,7 +62,7 @@
     height: 100%;
     @extend %centerflex;
     z-index: 5;
-    background-color: rgba($color--white, $alpha: 0.15);
+    background-color: rgba($color--black, $alpha: 0.7);
 
     .material-icons:nth-child(2) {
       margin-left: 1rem;

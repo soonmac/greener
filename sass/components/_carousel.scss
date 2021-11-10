@@ -26,8 +26,8 @@
     margin: 0 10px;
   }
   .bullet {
-    width: 15px;
-    height: 15px;
+    width: 12px;
+    height: 12px;
     background-color: $color--white;
     border-radius: 50%;
     color: transparent;
@@ -36,7 +36,6 @@
   }
   .active {
     width: 45px;
-    background-color: $color--purple;
     border-radius: 20px;
   }
 }

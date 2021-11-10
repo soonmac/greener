@@ -33,13 +33,13 @@
     li {
       position: relative;
       width: max-content;
-      list-style-type: "□";
+      list-style-type: "□  ";
       transition: 0.2s;
       &:not(:first-child) {
         margin-top: 1.6em;
       }
       &:hover {
-        list-style-type: "■";
+        list-style-type: "■  ";
       }
       a {
         &::after {
