@@ -12,7 +12,7 @@ const offsetTime = 3500;
 const popularSlide = document.querySelector(".popular-menu__slide__items");
 const popularSlides = document.querySelectorAll(".popular-menu__slide__items > li");
 const photoCount =popularSlides.length;
-const popularDuration = 1000;
+const popularDuration = 600;
 const btnNext=document.querySelector(".next-btn");
 const btnPrev=document.querySelector(".prev-btn");
 
@@ -137,6 +137,7 @@ repeater();
 //메인 페이지 hover
 const popularItems = document.querySelectorAll(".popular-menu__slide__items div");
 const popularItemBtn = document.querySelectorAll(".popular-menu__slide__items .popular-menu__slide__items__more-btn");
+const popularItemTooltip = document.querySelectorAll(".popular-menu__slide__items__tooltip");
 
 popularItems.forEach((item,i) => {
     item.addEventListener("mouseenter",function(){
@@ -146,3 +147,14 @@ popularItems.forEach((item,i) => {
         popularItemBtn[i].classList.remove("slide-top-btn");
     })
 })
+//돋보기 버튼 hover
+popularItemBtn.forEach((btn,i) => {
+    btn.addEventListener("mouseenter",function(){
+        popularItemTooltip[i].style.visibility = "visible";
+    })
+    btn.addEventListener("mouseleave",function(){
+        popularItemTooltip[i].removeAttribute("style");
+    })
+})
+
+

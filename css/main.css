@@ -172,7 +172,7 @@ html {
           font-feature-settings: "liga";
 }
 
-.banner-howto .more-btn, .slide__bullets, .toppings__list .toppings__list__item .topping-category__list__info--hover {
+.banner-howto .more-btn, .slide__bullets, .popular-menu__slide__items li .popular-menu__slide__items__tooltip::after, .toppings__list .toppings__list__item .topping-category__list__info--hover {
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -186,7 +186,7 @@ html {
           transform: translateY(-50%);
 }
 
-.sub-header hgroup, .popular-menu__slide__items li .popular-menu__slide__items__more-btn, .banner-howto__info, .insta-thumbnails__item .item__info {
+.sub-header hgroup, .popular-menu__slide__items li .popular-menu__slide__items__more-btn, .popular-menu__slide__items li .popular-menu__slide__items__tooltip, .banner-howto__info, .insta-thumbnails__item .item__info {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -728,6 +728,32 @@ nav .nav__submenu li:hover a {
   opacity: 0.5;
 }
 
+.popular-menu__slide__items li .popular-menu__slide__items__tooltip {
+  position: absolute;
+  width: 6.25rem;
+  padding: 0.6rem;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #fff;
+  background: black;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 0px;
+          box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 2px 0px;
+  top: 25%;
+  z-index: 9;
+  visibility: hidden;
+}
+
+.popular-menu__slide__items li .popular-menu__slide__items__tooltip::after {
+  content: "";
+  top: 90%;
+  width: 0;
+  height: 0;
+  border-width: 10px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
 .slide-btn {
   color: #00584c;
   border: none;
@@ -1218,7 +1244,8 @@ footer {
   color: #fff;
 }
 
-.toppings__list .toppings__list__item:hover figure::after {
+.toppings__list .toppings__list__item:hover figure::after,
+.toppings__list .toppings__list__item:hover .topping-category__list__item__info {
   display: block;
 }
 
@@ -1232,4 +1259,10 @@ footer {
   height: 100%;
   background: #00584c;
   z-index: 2;
+}
+
+.topping-category__list__item__info {
+  margin-top: 1em;
+  line-height: 1.3;
+  display: none;
 }
