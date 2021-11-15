@@ -59,6 +59,9 @@
       width: max-content;
       list-style-type: "□  ";
       transition: 0.2s;
+      @include laptop {
+        font-size: 120%;
+      }
       &:not(:first-child) {
         margin-top: 1.6em;
       }

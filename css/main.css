@@ -562,6 +562,12 @@ nav .nav__menu > li {
   position: relative;
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  nav .nav__menu > li {
+    font-size: 1.5rem;
+  }
+}
+
 nav .nav__menu > li:not(:first-child) {
   margin-left: 2em;
 }
@@ -621,6 +627,18 @@ nav .nav__submenu li:hover a {
   margin: 0 auto;
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .slide-container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .slide-container {
+    width: 100%;
+  }
+}
+
 .clearfix::after {
   display: block;
   content: "";
@@ -634,6 +652,18 @@ nav .nav__submenu li:hover a {
 
 .slide li {
   float: left;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .slide img {
+    width: 150vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .slide img {
+    width: 150vw;
+  }
 }
 
 .slide__bullets {
@@ -699,6 +729,7 @@ nav .nav__submenu li:hover a {
 @media (min-width: 768px) and (max-width: 1023px) {
   .popular-menu__info {
     width: 100vw;
+    font-size: 120%;
   }
 }
 
@@ -763,6 +794,12 @@ nav .nav__submenu li:hover a {
   left: 2em;
 }
 
+@media screen and (max-width: 1279px) {
+  .popular-menu__slide__items {
+    padding: 0 2em;
+  }
+}
+
 .popular-menu__slide__items li {
   position: relative;
   float: left;
@@ -777,7 +814,7 @@ nav .nav__submenu li:hover a {
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .popular-menu__slide__items li {
-    font-size: 70%;
+    font-size: 50%;
   }
 }
 
@@ -786,6 +823,7 @@ nav .nav__submenu li:hover a {
 }
 
 .popular-menu__slide__items li div {
+  position: relative;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -842,6 +880,12 @@ nav .nav__submenu li:hover a {
   visibility: hidden;
 }
 
+@media screen and (max-width: 1279px) {
+  .popular-menu__slide__items li .popular-menu__slide__items__tooltip {
+    top: 20%;
+  }
+}
+
 .popular-menu__slide__items li .popular-menu__slide__items__tooltip::after {
   content: "";
   top: 90%;
@@ -887,7 +931,7 @@ nav .nav__submenu li:hover a {
 
 @media screen and (max-width: 1279px) {
   .prev-btn {
-    left: 50em;
+    left: 35%;
   }
 }
 
@@ -897,7 +941,7 @@ nav .nav__submenu li:hover a {
 
 @media screen and (max-width: 1279px) {
   .next-btn {
-    right: 50em;
+    right: 35%;
   }
 }
 
@@ -1017,6 +1061,12 @@ nav .nav__submenu li:hover a {
   list-style-type: "□  ";
   -webkit-transition: 0.2s;
   transition: 0.2s;
+}
+
+@media screen and (max-width: 1279px) {
+  .notice .notice__links li {
+    font-size: 120%;
+  }
 }
 
 .notice .notice__links li:not(:first-child) {

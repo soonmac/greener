@@ -4,6 +4,12 @@
   width: 1920px;
   overflow: hidden;
   margin: 0 auto;
+  @include tablet {
+    width: 100%;
+  }
+  @include mobile {
+    width: 100%;
+  }
 }
 .clearfix::after {
   display: block;
@@ -13,8 +19,17 @@
 .slide {
   margin-left: 0;
   width: 300%;
+
   li {
     float: left;
+  }
+  img {
+    @include tablet {
+      width: 150vw;
+    }
+    @include mobile {
+      width: 150vw;
+    }
   }
 }
 

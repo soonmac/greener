@@ -18,6 +18,7 @@
   padding: 2rem;
   @include tablet {
     width: 100vw;
+    font-size: 120%;
   }
 }
 .popular-menu__title {
@@ -58,6 +59,9 @@
   width: 200%;
   @extend %colCenter;
   left: 2em;
+  @include laptop {
+    padding: 0 2em;
+  }
 
   li {
     position: relative;
@@ -67,13 +71,14 @@
       font-size: 80%;
     }
     @include tablet {
-      font-size: 70%;
+      font-size: 50%;
     }
     &:not(:first-child) {
       margin-left: 11.5em;
     }
     div {
       @extend %centerflex;
+      position: relative;
       flex-direction: column;
     }
     .popular-menu__slide__items__info {
@@ -121,7 +126,9 @@
       top: 25%;
       z-index: 9;
       visibility: hidden;
-      // visibility: visible;
+      @include laptop {
+        top: 20%;
+      }
 
       &::after {
         content: "";
@@ -164,13 +171,13 @@
 .prev-btn {
   left: 15rem;
   @include laptop {
-    left: 50em;
+    left: 35%;
   }
 }
 .next-btn {
   right: 15rem;
   @include laptop {
-    right: 50em;
+    right: 35%;
   }
 }
 .slide-btn .material-icons {

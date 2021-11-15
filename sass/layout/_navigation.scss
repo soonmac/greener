@@ -11,6 +11,9 @@ nav {
 
     & > li {
       position: relative;
+      @include tablet {
+        font-size: 1.5rem;
+      }
 
       &:not(:first-child) {
         margin-left: 2em;
