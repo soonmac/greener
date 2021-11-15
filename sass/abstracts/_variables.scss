@@ -4,9 +4,6 @@ $color--white: #fff;
 $color--gray: #f2f2f2;
 $color--black: #333;
 $imgpath: "./../img/";
-// $screen-laptop: 1024px;
-// $screen-tablet: 768px;
-// $screen-mobile: 375px;
 
 @mixin marker-left($col, $left, $width) {
   &::before {
@@ -70,8 +67,13 @@ $imgpath: "./../img/";
 }
 
 // 미디어쿼리
+@mixin mobile-sm {
+  @media screen and (max-width: 479px) {
+    @content;
+  }
+}
 @mixin mobile {
-  @media screen and (max-width: 767px) {
+  @media (min-width: 480px) and (max-width: 767px) {
     @content;
   }
 }

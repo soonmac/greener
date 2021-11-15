@@ -11,23 +11,48 @@
 </head>
 <body>
     <div class="page-container">
+        <button onclick="location.href='#'" class="scrollTop-btn">
+            <span class="material-icons">
+                arrow_upward
+                </span>
+        </button>
         <header id="header" class="main-header">
             <a href="#" class="header__logo"><img src="img/logo-green.png" alt="로고"></a>
             <nav id="nav">
+                  <!-- 모바일용 메뉴버튼 -->
+                  <input type="checkbox" id="check">
+                  <label for="check" class="checkbtn">
+                      <span class="material-icons" id="menu-btn">
+                          menu
+                        </span>
+                        <span class="material-icons" id="close-btn">
+                            close
+                        </span>
+
+                  </label>              
                 <ul class="nav__menu">
                     <li><a href="#">브랜드</a></li>
-                    <li>
-                        <a href="#">메뉴</a>
+                    <li class="nav__menu__dropdown">
+                        <a href="#">메뉴
+                            <span class="material-icons dropdown-btn" id="dropdown-down">
+                                arrow_drop_down
+                                </span>
+                            <span class="material-icons dropdown-btn" id="dropdown-up">
+                                arrow_drop_up
+                                </span>
+                            
+                        </a>
                         <ul class="nav__submenu">
                             <li><a href="#">샐러드</a></li>
                             <li><a href="#">요거트</a></li>
-                            <li><a href="#">토핑 재료 소개</a></li>
+                            <li><a href="sub.html">토핑 재료 소개</a></li>
                         </ul>
                     </li>
                     <li><a href="#">새소식</a></li>
                     <li><a href="#">매장찾기</a></li>
                     <li><a href="#">가맹문의</a></li>
                 </ul>
+
             </nav>
         </header>
 
@@ -331,7 +356,7 @@
                         </li>
                     </ul>
                     <div class="row-container">
-                        <button class="more-btn">
+                        <button onclick="window.open('https://www.instagram.com/greener__official/')" class="more-btn">
                             more
                             <span class="material-icons">
                                 east
@@ -378,7 +403,7 @@
                     </span>
                 </div>
                 <ul class="footer__sns">
-                    <li><a href="#"><img src="img/icon-insta_mini.png" alt="인스타 바로가기 아이콘"></a></li>
+                    <li><a href="https://www.instagram.com/greener__official/"><img src="img/icon-insta_mini.png" alt="인스타 바로가기 아이콘"></a></li>
                     <li><a href="#"><img src="img/icon-call.png" alt="전화걸기 아이콘"></a></li>
                 </ul>
             </div>

@@ -5,18 +5,29 @@ nav {
   flex-wrap: nowrap;
   background-color: $color--green;
   width: 100vw;
+  @include mobile-sm {
+    position: relative;
+    justify-content: flex-end;
+  }
 
   .nav__menu {
     display: flex;
 
     & > li {
       position: relative;
+      transition: 0.2s;
       @include tablet {
         font-size: 1.5rem;
       }
-
+      @include mobile-sm {
+        text-align: center;
+        font-size: 1.3rem;
+      }
       &:not(:first-child) {
         margin-left: 2em;
+        @include mobile-sm {
+          margin: 0;
+        }
       }
       & > a {
         font-weight: 600;
@@ -24,6 +35,9 @@ nav {
       }
       &:hover {
         background-color: darken($color--green, 8%);
+        @include mobile-sm {
+          background-color: darken($color--green, 20%);
+        }
         .nav__submenu {
           display: block;
           opacity: 1;
@@ -31,32 +45,99 @@ nav {
         }
       }
     }
+    @include mobile-sm {
+      flex-direction: column;
+      position: absolute;
+      z-index: 99;
+      width: 100%;
+      top: 100%;
+      height: 100vh;
+      background: darken($color--green, $amount: 8%);
+
+      left: -100%;
+      transition: 0.3s;
+    }
   }
-  .nav__submenu {
-    transition: 200ms ease-in-out;
-    transform: translateY(20px);
+  // nav__menu
+}
+//모바일 메뉴 드롭다운
+.nav__menu__dropdown {
+  position: relative;
+  span {
     display: none;
-    opacity: 0;
-    position: absolute;
-    top: 100%;
-    width: max-content;
-    z-index: 9;
-    background-color: $color--white;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
-      rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
-      rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-    overflow: hidden;
-    li {
-      a {
-        padding: 1.5em 1em;
-        letter-spacing: 0.05rem;
+    font-size: 36px;
+    @extend %colCenter;
+    right: 1rem;
+  }
+}
+#dropdown-down {
+  @include mobile-sm {
+    display: block;
+  }
+}
+//모바일 메뉴 버튼
+.checkbtn {
+  display: none;
+  cursor: pointer;
+  height: 3em;
+  margin: 0.5em;
+  @include mobile-sm {
+    display: block;
+  }
+  span {
+    font-size: 36px;
+  }
+  #close-btn {
+    display: none;
+  }
+}
+#check {
+  display: none;
+}
+#check:checked ~ .nav__menu {
+  left: 0;
+}
+#check:checked ~ label #menu-btn {
+  display: none;
+}
+#check:checked ~ label #close-btn {
+  display: block;
+  -webkit-animation: rotate-center 0.6s ease-in-out both;
+  animation: rotate-center 0.6s ease-in-out both;
+}
+
+.nav__submenu {
+  transition: 200ms ease-in-out;
+  transform: translateY(20px);
+  display: none;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  width: max-content;
+  z-index: 9;
+  background-color: $color--white;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+  overflow: hidden;
+  @include mobile-sm {
+    position: static;
+    width: 100%;
+    background-color: darken($color--gray, 10%);
+  }
+  li {
+    a {
+      padding: 1em 1em;
+      letter-spacing: 0.05rem;
+      color: $color--black;
+      border-bottom: 1px solid rgba($color--black, 0.5);
+      @include mobile-sm {
         color: $color--black;
-        border-bottom: 1px solid rgba($color--black, 0.5);
       }
-      &:hover a {
-        background-color: $color--green;
-        color: $color--white;
-      }
+    }
+    &:hover a {
+      background-color: $color--purple;
+      color: $color--white;
     }
   }
 }

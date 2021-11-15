@@ -10,6 +10,9 @@
   @include mobile {
     width: 100%;
   }
+  @include mobile-sm {
+    width: 100%;
+  }
 }
 .clearfix::after {
   display: block;
@@ -30,6 +33,9 @@
     @include mobile {
       width: 150vw;
     }
+    // @include mobile-sm {
+    //   width: 100vw;
+    // }
   }
 }
 

@@ -33,9 +33,13 @@
   @include mobile {
     width: 100%;
     margin-bottom: 2em;
+  }
+  @include mobile-sm {
+    width: 100%;
+    margin-bottom: 2em;
     flex-direction: column;
     justify-content: center;
-    font-size: 90%;
+    font-size: 80%;
   }
   .notice__title {
     width: 45%;
@@ -46,6 +50,9 @@
     @include mobile {
       margin-bottom: 0.5em;
     }
+    @include mobile-sm {
+      font-size: 2.5rem;
+    }
   }
   .notice__links {
     position: relative;
@@ -54,6 +61,14 @@
     vertical-align: middle;
     list-style-type: square;
     @include marker-left($color--white, -0.75, 1);
+    @include mobile {
+      text-align: center;
+    }
+    @include mobile-sm {
+      @include marker-left(transparent, -0.75, 1);
+      width: 90%;
+      margin-top: 2em;
+    }
     li {
       position: relative;
       width: max-content;
@@ -62,6 +77,7 @@
       @include laptop {
         font-size: 120%;
       }
+
       &:not(:first-child) {
         margin-top: 1.6em;
       }
@@ -103,6 +119,9 @@
     @include mobile {
       font-size: 2.8em;
     }
+    @include mobile-sm {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -113,6 +132,9 @@
   border-radius: 0 1.875rem;
   background: no-repeat center/cover url("../img/howto_banner.jpg");
   @include mobile {
+    width: 100%;
+  }
+  @include mobile-sm {
     width: 100%;
   }
 }
