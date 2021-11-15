@@ -8,6 +8,9 @@ footer {
   justify-content: space-between;
   width: 1200px;
   margin: 0 auto;
+  @include laptop {
+    width: 100%;
+  }
 }
 .footer__logo {
   width: 50%;

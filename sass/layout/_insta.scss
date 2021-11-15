@@ -4,12 +4,20 @@
   width: 1200px;
   margin: 10rem auto;
   flex-wrap: wrap;
+  @include laptop {
+    width: 100vw;
+    padding: 2em;
+  }
 }
 .insta-thumbnails__list {
+  width: 100%;
   padding: 3rem 0;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  @include laptop {
+    justify-content: space-evenly;
+  }
 }
 
 .insta-thumbnails__item {
@@ -19,6 +27,10 @@
   margin-bottom: 1.25em;
   color: $color--white;
   background: $color--green;
+  @include laptop {
+    width: 16%;
+    margin-bottom: 1%;
+  }
   &:first-child {
     @include background("thumbnail_01.jpg");
   }

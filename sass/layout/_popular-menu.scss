@@ -6,13 +6,19 @@
   justify-content: center;
   width: 100%;
   flex-wrap: wrap;
+  @include tablet {
+    margin-top: 7rem;
+  }
 }
 .popular-menu__info {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  min-width: 1200px;
+  width: 75rem;
   padding: 2rem;
+  @include tablet {
+    width: 100vw;
+  }
 }
 .popular-menu__title {
   color: $color--green;
@@ -39,13 +45,12 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  min-width: 1200px;
   height: 22.813rem;
   background-color: $color--gray;
 }
 .popular-menu__slide-container {
   position: relative;
-  width: 1200px;
+  width: 75em;
   height: 100%;
   overflow: hidden;
 }
@@ -53,12 +58,23 @@
   width: 200%;
   @extend %colCenter;
   left: 2em;
+
   li {
     position: relative;
     float: left;
     overflow: hidden;
+    @include laptop {
+      font-size: 80%;
+    }
+    @include tablet {
+      font-size: 70%;
+    }
     &:not(:first-child) {
-      margin-left: 11.5rem;
+      margin-left: 11.5em;
+    }
+    div {
+      @extend %centerflex;
+      flex-direction: column;
     }
     .popular-menu__slide__items__info {
       display: block;
@@ -71,8 +87,9 @@
       @extend %centerflex;
       @extend %center;
       transform: translate(-50%, 250%);
-      width: 70px;
-      height: 70px;
+      width: 4.375rem;
+      height: 4.375rem;
+
       border-radius: 50%;
       background-color: $color--green;
       border: none;
@@ -81,6 +98,9 @@
     .material-icons {
       font-size: 36px;
       color: $color--white;
+      @include tablet {
+        font-size: 24px;
+      }
     }
     &:hover div {
       img {
@@ -116,6 +136,7 @@
     }
   }
 }
+
 .slide-btn {
   color: $color--green;
   @extend %colCenter;
@@ -131,12 +152,26 @@
     background: $color--green;
     color: $color--white;
   }
+  z-index: 99;
+  @include laptop {
+    background-color: $color--white;
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    top: 100%;
+  }
 }
 .prev-btn {
   left: 15rem;
+  @include laptop {
+    left: 50em;
+  }
 }
 .next-btn {
   right: 15rem;
+  @include laptop {
+    right: 50em;
+  }
 }
 .slide-btn .material-icons {
   font-size: 48px;
