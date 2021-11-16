@@ -139,15 +139,27 @@ const popularItems = document.querySelectorAll(".popular-menu__slide__items div"
 const popularItemBtn = document.querySelectorAll(".popular-menu__slide__items .popular-menu__slide__items__more-btn");
 const popularItemTooltip = document.querySelectorAll(".popular-menu__slide__items__tooltip");
 
-popularItems.forEach((item,i) => {
-    item.addEventListener("mouseenter",function(){
-        popularItemBtn[i].classList.add("slide-top-btn");
-    })
-    item.addEventListener("mouseleave",function(){
-        popularItemBtn[i].classList.remove("slide-top-btn");
-    })
-})
+
 //돋보기 버튼 hover
+if (matchMedia("screen and (min-width: 1024px)").matches) {
+    popularItems.forEach((item,i) => {
+        item.addEventListener("mouseenter",function(){
+            popularItemBtn[i].classList.add("slide-top-btn");
+        })
+        item.addEventListener("mouseleave",function(){
+            popularItemBtn[i].classList.remove("slide-top-btn");
+        })
+    })
+}
+window.onresize = function() {
+    if (window.innerWidth > 1024) {
+        document.location.reload();
+    }
+}
+//크롬 개발자 도구로 화면을 줄였을 때 새로고침을 해야 matchMedia 함수가 제대로 작동할듯?
+
+
+
 popularItemBtn.forEach((btn,i) => {
     btn.addEventListener("mouseenter",function(){
         popularItemTooltip[i].style.visibility = "visible";
@@ -157,4 +169,18 @@ popularItemBtn.forEach((btn,i) => {
     })
 })
 
+//드롭다운 관련
+const dropdown = document.querySelector(".nav__menu__dropdown");
+const submenu = document.querySelector(".nav__submenu");
+const downBtn = document.querySelector(".dropdown-down");
+const dropdownLi = document.querySelectorAll(".nav__submenu > li")
+dropdown.addEventListener("click",function(){
+    submenu.classList.toggle("on");
 
+    
+})
+if (matchMedia("screen and (max-width: 479px)").matches) {
+    dropdown.addEventListener("click",function(){
+        downBtn.classList.toggle("open");
+    })
+}

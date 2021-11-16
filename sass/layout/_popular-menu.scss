@@ -158,6 +158,15 @@
       @include laptop {
         top: 20%;
       }
+      @include tablet {
+        @include tooltip-mobile;
+      }
+      @include mobile {
+        @include tooltip-mobile;
+      }
+      @include mobile-sm {
+        @include tooltip-mobile;
+      }
 
       &::after {
         content: "";

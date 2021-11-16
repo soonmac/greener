@@ -94,4 +94,14 @@ $imgpath: "./../img/";
   /*브라우저 사이즈768px이상, 1023px 이하일때*/
 }
 @include laptop {
-} ;
+}
+
+//툴팁 미디어쿼리
+@mixin tooltip-mobile {
+  background: transparent;
+  color: $color--black;
+  top: 95%;
+  box-shadow: transparent 1px 1px 2px 0px;
+  visibility: visible;
+  font-size: 1rem;
+}

@@ -22,6 +22,7 @@ nav {
       @include mobile-sm {
         text-align: center;
         font-size: 1.3rem;
+        padding: 0.5em;
       }
       &:not(:first-child) {
         margin-left: 2em;
@@ -38,11 +39,6 @@ nav {
         @include mobile-sm {
           background-color: darken($color--green, 20%);
         }
-        .nav__submenu {
-          display: block;
-          opacity: 1;
-          transform: translateY(0);
-        }
       }
     }
     @include mobile-sm {
@@ -50,10 +46,9 @@ nav {
       position: absolute;
       z-index: 99;
       width: 100%;
-      top: 100%;
+      top: 99%;
       height: 100vh;
       background: darken($color--green, $amount: 8%);
-
       left: -100%;
       transition: 0.3s;
     }
@@ -64,15 +59,22 @@ nav {
 .nav__menu__dropdown {
   position: relative;
   span {
+    vertical-align: middle;
     display: none;
     font-size: 36px;
-    @extend %colCenter;
-    right: 1rem;
+    @include mobile-sm {
+      transform: rotate(0deg);
+      transition: transform 0.2s linear;
+      display: inline-block;
+    }
+  }
+  .open {
+    transform: rotate(-180deg);
   }
 }
-#dropdown-down {
+.dropdown-down {
   @include mobile-sm {
-    display: block;
+    display: inline-block;
   }
 }
 //모바일 메뉴 버튼
@@ -91,6 +93,7 @@ nav {
     display: none;
   }
 }
+
 #check {
   display: none;
 }
@@ -105,12 +108,10 @@ nav {
   -webkit-animation: rotate-center 0.6s ease-in-out both;
   animation: rotate-center 0.6s ease-in-out both;
 }
-
+//서브메뉴
 .nav__submenu {
   transition: 200ms ease-in-out;
-  transform: translateY(20px);
   display: none;
-  opacity: 0;
   position: absolute;
   top: 100%;
   width: max-content;
@@ -140,4 +141,7 @@ nav {
       color: $color--white;
     }
   }
+}
+.on {
+  display: block;
 }
