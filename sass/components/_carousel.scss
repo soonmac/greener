@@ -25,6 +25,37 @@
 
   li {
     float: left;
+    width: 1920px;
+    @include mobile-sm {
+      width: 100vw;
+    }
+    a {
+      width: 100%;
+      height: 30rem;
+      display: block;
+      @include mobile-sm {
+        height: 90vh;
+      }
+    }
+  }
+  // 슬라이드 배경 링크
+  .slide__01 > a {
+    @include slide-background("slide_01.png");
+    @include mobile-sm {
+      @include mobile-slide-background("mobile_slide_01.png");
+    }
+  }
+  .slide__02 > a {
+    @include slide-background("slide_02.jpg");
+    @include mobile-sm {
+      @include mobile-slide-background("mobile_slide_02.png");
+    }
+  }
+  .slide__03 > a {
+    @include slide-background("slide_03.jpg");
+    @include mobile-sm {
+      @include mobile-slide-background("mobile_slide_03.png");
+    }
   }
   img {
     @include tablet {

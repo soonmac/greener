@@ -83,5 +83,14 @@ html {
     margin: 0 auto;
     width: 1200px;
     padding: 2em 0;
+    @media screen and (max-width: 1023px) {
+      width: 100vw;
+    }
+    @include mobile-sm {
+      justify-content: center;
+    }
   }
+}
+.sub-main {
+  width: 100%;
 }

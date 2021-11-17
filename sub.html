@@ -7,28 +7,46 @@
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="js/sub_script.js" defer></script>
+    <script src="js/nav_script.js" defer></script>
     <title>그리너 서브페이지 - 토핑 재료</title>
 </head>
 <body>
     <div class="page-container">
         <header id="header" class="main-header">
-            <a href="#" class="header__logo"><img src="img/logo-green.png" alt="로고"></a>
+            <a href="index.html" class="header__logo"><img src="img/logo-green.png" alt="로고"></a>
             <nav id="nav">
-                <ul class="nav__menu">
-                    <li><a href="#">브랜드</a></li>
-                    <li>
-                        <a href="#">메뉴</a>
-                        <ul class="nav__submenu">
-                            <li><a href="#">샐러드</a></li>
-                            <li><a href="#">요거트</a></li>
-                            <li><a href="#">토핑 재료 소개</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">새소식</a></li>
-                    <li><a href="#">매장찾기</a></li>
-                    <li><a href="#">가맹문의</a></li>
-                </ul>
-            </nav>
+                <!-- 모바일용 메뉴버튼 -->
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <span class="material-icons" id="menu-btn">
+                        menu
+                      </span>
+                      <span class="material-icons" id="close-btn">
+                          close
+                      </span>
+
+                </label>              
+              <ul class="nav__menu">
+                  <li><a href="#">브랜드</a></li>
+                  <li class="nav__menu__dropdown">
+                      <a href="#">  메뉴
+                          <span class="material-icons dropdown-btn dropdown-down">
+                              arrow_drop_down
+                              </span>
+                          
+                      </a>
+                      <ul class="nav__submenu">
+                          <li><a href="#">샐러드</a></li>
+                          <li><a href="#">요거트</a></li>
+                          <li><a href="sub.html">토핑 재료 소개</a></li>
+                      </ul>
+                  </li>
+                  <li><a href="#">새소식</a></li>
+                  <li><a href="#">매장찾기</a></li>
+                  <li><a href="#">가맹문의</a></li>
+              </ul>
+
+          </nav>
         </header>
         <section class="sub-header">
             <img src="img/sub/sub_header.png" alt="토핑 재료 소개">
@@ -69,7 +87,6 @@
             <section class="toppings__container">
                 <ul class="toppings__list">
                     <li class="toppings__list__item">
-                        <a href="#">
                             <figure>
                                 <img src="img/sub/sub_thumb_01.png" alt="방울토마토">
                                 <figcaption class="topping-category__list__info">
@@ -80,10 +97,8 @@
                                     </span>
                                 </figcaption>
                             </figure>
-                        </a>
                     </li>
                     <li class="toppings__list__item">
-                        <a href="#">
                             <figure>
                                 <img src="img/sub/sub_thumb_02.png" alt="새송이버섯">
                                 <figcaption class="topping-category__list__info">
@@ -94,10 +109,8 @@
                                     </span>
                                 </figcaption>
                             </figure>
-                        </a>
                     </li>
                     <li class="toppings__list__item">
-                        <a href="#">
                             <figure>
                                 <img src="img/sub/sub_thumb_03.png" alt="브로콜리">
                                 <figcaption class="topping-category__list__info">
@@ -108,10 +121,8 @@
                                     </span>
                                 </figcaption>
                             </figure>
-                        </a>
                     </li>
                     <li class="toppings__list__item">
-                        <a href="#">
                             <figure>
                                 <img src="img/sub/sub_thumb_06.png" alt="아스파라거스">
                                 <figcaption class="topping-category__list__info">
@@ -122,10 +133,8 @@
                                     </span>
                                 </figcaption>
                             </figure>
-                        </a>
                     </li>
                     <li class="toppings__list__item">
-                        <a href="#">
                             <figure>
                                 <img src="img/sub/sub_thumb_04.png" alt="오이">
                                 <figcaption class="topping-category__list__info">
@@ -136,10 +145,8 @@
                                     </span>
                                 </figcaption>
                             </figure>
-                        </a>
                     </li>
                     <li class="toppings__list__item">
-                        <a href="#">
                             <figure>
                                 <img src="img/sub/sub_thumb_05.png" alt="올리브">
                                 <figcaption class="topping-category__list__info">
@@ -150,10 +157,8 @@
                                     </span>
                                 </figcaption>
                             </figure>
-                        </a>
                     </li>
                     <li class="toppings__list__item">
-                        <a href="#">
                             <figure>
                                 <img src="img/sub/sub_thumb_07.png" alt="파프리카">
                                 <figcaption class="topping-category__list__info">
@@ -164,10 +169,8 @@
                                     </span>
                                 </figcaption>
                             </figure>
-                        </a>
                     </li>
                     <li class="toppings__list__item">
-                        <a href="#">
                             <figure>
                                 <img src="img/sub/sub_thumb_08.png" alt="양파">
                                 <figcaption class="topping-category__list__info">
@@ -178,10 +181,8 @@
                                     </span>
                                 </figcaption>
                             </figure>
-                        </a>
                     </li>
                     <li class="toppings__list__item">
-                        <a href="#">
                             <figure>
                                 <img src="img/sub/sub_thumb_09.png" alt="미니당근">
                                 <figcaption class="topping-category__list__info">
@@ -192,10 +193,8 @@
                                     </span>
                                 </figcaption>
                             </figure>
-                        </a>
                     </li>
                     <li class="toppings__list__item">
-                        <a href="#">
                             <figure>
                                 <img src="img/sub/sub_thumb_10.png" alt="할라피뇨">
                                 <figcaption class="topping-category__list__info">
@@ -206,10 +205,8 @@
                                     </span>
                                 </figcaption>
                             </figure>
-                        </a>
                     </li>
                     <li class="toppings__list__item">
-                        <a href="#">
                             <figure>
                                 <img src="img/sub/sub_thumb_11.png" alt="마늘후레이크">
                                 <figcaption class="topping-category__list__info">
@@ -220,10 +217,8 @@
                                     </span>
                                 </figcaption>
                             </figure>
-                        </a>
                     </li>
                     <li class="toppings__list__item">
-                        <a href="#">
                             <figure>
                                 <img src="img/sub/sub_thumb_12.png" alt="아보카도">
                                 <figcaption class="topping-category__list__info">
@@ -234,7 +229,6 @@
                                     </span>
                                 </figcaption>
                             </figure>
-                        </a>
                     </li>
                 </ul>
             </section>

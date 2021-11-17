@@ -1,6 +1,7 @@
 const slideContainer = document.querySelector(".slide-container");
 const slide = document.querySelector(".slide");
 let slides = document.querySelectorAll(".slide>li")
+const slideImgs = document.querySelectorAll(".slide > li > a > img")
 let currentSlide = 0;
 const duration = 400;
 let timerId=0;
@@ -8,17 +9,104 @@ let photoIndex=0;
 let bullet = 0;
 const offsetTime = 3500;
 
+
+
 //인기메뉴 슬라이드 관련 변수
 const popularSlide = document.querySelector(".popular-menu__slide__items");
-const popularSlides = document.querySelectorAll(".popular-menu__slide__items > li");
+const popularSlides = Array.from(document.querySelectorAll(".popular-menu__slide__items > li"));
 const photoCount =popularSlides.length;
 const popularDuration = 600;
+let isDragging = false,
+    startPos = 0,
+    currentTranslate=0,
+    prevTranslate=0,
+    animationId=0
 const btnNext=document.querySelector(".next-btn");
 const btnPrev=document.querySelector(".prev-btn");
+const popularSlideContainer = document.querySelector(".popular-menu__slide-container");
+//터치 슬라이드//
+touchSlide(popularSlide);
+// if (matchMedia("screen and (max-width: 479px)").matches) {
+//     touchSlide(popularSlide);
+// }
+
+
+function touchSlide(slideName) {
+    // 터치 이벤트
+    slideName.addEventListener("touchstart", touchStart());
+    slideName.addEventListener("touchend", touchEnd);
+    slideName.addEventListener("touchmove", touchMove);
+    
+    // 마우스 이벤트
+    slideName.addEventListener("mousedown", touchStart());
+    slideName.addEventListener("mouseup", touchEnd);
+    slideName.addEventListener("mouseleave", touchEnd);
+    slideName.addEventListener("mousemove", touchMove);
+
+}
+
+
+
+
+
+function touchStart() {
+    return function(event) {
+        startPos = getPositionX(event);
+        isDragging =  true;
+        animationId = requestAnimationFrame(animation);
+    }
+}
+function touchEnd() {
+    isDragging =  false;
+    cancelAnimationFrame(animationId);
+
+    const movedBy = currentTranslate - prevTranslate;
+
+    // 마우스가 왼쪽으로 가면  (전진)
+    if(movedBy < -50 && photoIndex <= photoCount) {
+        photoIndex += 1;
+    }
+    // 마우스가 오른쪽으로 가면 (후진)
+    if(movedBy > 50 && photoIndex > 0) {
+        photoIndex -= 1;
+    }
+    if(currentTranslate < -window.innerWidth) {
+        photoIndex = photoCount-1;
+    } 
+    setPositionByIndex();
+}
+function touchMove(event) {
+    if(isDragging) {
+        const currentPosition = getPositionX(event);
+        currentTranslate = prevTranslate + currentPosition - startPos
+    }
+}
+// 클릭, 터치 좌표 구하는 함수
+function getPositionX(event) {
+    return event.type.includes("mouse") ? event.pageX : event.touches[0].clientX
+}
+// 애니메이션 관련
+function animation() {
+    setSliderPosition();
+    if(isDragging) requestAnimationFrame(animation)
+}
+// 터치해서 넘길 때 얼마나 이동시킬지 
+function setSliderPosition() {
+    popularSlide.style.transform=`translate(${currentTranslate}px,-50%)`
+}
+function setPositionByIndex() {
+    currentTranslate = photoIndex * -popularSlideContainer.offsetWidth*0.35;
+
+    prevTranslate = currentTranslate;
+    setSliderPosition();
+}
+
 
 // 슬라이드 버튼 클릭 이벤트
 btnPrev.addEventListener("click", prevSlideImage)
 btnNext.addEventListener("click", nextSlideImage)
+
+
 
 //다음 사진으로 슬라이드
 function nextSlideImage() {
@@ -151,13 +239,6 @@ if (matchMedia("screen and (min-width: 1024px)").matches) {
         })
     })
 }
-window.onresize = function() {
-    if (window.innerWidth > 1024) {
-        document.location.reload();
-    }
-}
-//크롬 개발자 도구로 화면을 줄였을 때 새로고침을 해야 matchMedia 함수가 제대로 작동할듯?
-
 
 
 popularItemBtn.forEach((btn,i) => {
@@ -169,18 +250,4 @@ popularItemBtn.forEach((btn,i) => {
     })
 })
 
-//드롭다운 관련
-const dropdown = document.querySelector(".nav__menu__dropdown");
-const submenu = document.querySelector(".nav__submenu");
-const downBtn = document.querySelector(".dropdown-down");
-const dropdownLi = document.querySelectorAll(".nav__submenu > li")
-dropdown.addEventListener("click",function(){
-    submenu.classList.toggle("on");
 
-    
-})
-if (matchMedia("screen and (max-width: 479px)").matches) {
-    dropdown.addEventListener("click",function(){
-        downBtn.classList.toggle("open");
-    })
-}

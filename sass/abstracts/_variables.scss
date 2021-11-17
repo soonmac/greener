@@ -44,6 +44,12 @@ $imgpath: "./../img/";
 @mixin background($filename) {
   background: no-repeat center/cover url(#{$imgpath}#{$filename});
 }
+@mixin slide-background($filename) {
+  background: no-repeat center/contain url(#{$imgpath}#{$filename});
+}
+@mixin mobile-slide-background($filename) {
+  background: no-repeat center/cover url(#{$imgpath}#{$filename});
+}
 %rowCenter {
   position: absolute;
   left: 50%;
@@ -65,7 +71,13 @@ $imgpath: "./../img/";
   justify-content: center;
   align-items: center;
 }
-
+@mixin clearfix {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
 // 미디어쿼리
 @mixin mobile-sm {
   @media screen and (max-width: 479px) {

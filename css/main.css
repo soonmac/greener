@@ -363,6 +363,24 @@ html {
   padding: 2em 0;
 }
 
+@media screen and (max-width: 1023px) {
+  .sub-main .row-container {
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .sub-main .row-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.sub-main {
+  width: 100%;
+}
+
 .slide-top {
   -webkit-animation: slide-top 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -581,9 +599,21 @@ html {
   font-weight: 600;
 }
 
+@media screen and (max-width: 479px) {
+  .sub-header hgroup .sub-header__title {
+    font-size: 3rem;
+  }
+}
+
 .sub-header hgroup .sub-header__subtitle {
   margin-top: 1.5em;
   font-size: 1.2rem;
+}
+
+@media screen and (max-width: 479px) {
+  .sub-header hgroup .sub-header__subtitle {
+    font-size: 0.95rem;
+  }
 }
 
 /* 내비 */
@@ -835,6 +865,55 @@ nav .nav__menu > li:hover {
 
 .slide li {
   float: left;
+  width: 1920px;
+}
+
+@media screen and (max-width: 479px) {
+  .slide li {
+    width: 100vw;
+  }
+}
+
+.slide li a {
+  width: 100%;
+  height: 30rem;
+  display: block;
+}
+
+@media screen and (max-width: 479px) {
+  .slide li a {
+    height: 90vh;
+  }
+}
+
+.slide .slide__01 > a {
+  background: no-repeat center/contain url(./../img/slide_01.png);
+}
+
+@media screen and (max-width: 479px) {
+  .slide .slide__01 > a {
+    background: no-repeat center/cover url(./../img/mobile_slide_01.png);
+  }
+}
+
+.slide .slide__02 > a {
+  background: no-repeat center/contain url(./../img/slide_02.jpg);
+}
+
+@media screen and (max-width: 479px) {
+  .slide .slide__02 > a {
+    background: no-repeat center/cover url(./../img/mobile_slide_02.png);
+  }
+}
+
+.slide .slide__03 > a {
+  background: no-repeat center/contain url(./../img/slide_03.jpg);
+}
+
+@media screen and (max-width: 479px) {
+  .slide .slide__03 > a {
+    background: no-repeat center/cover url(./../img/mobile_slide_03.png);
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -1058,7 +1137,7 @@ nav .nav__menu > li:hover {
 
 @media screen and (max-width: 479px) {
   .popular-menu__slide__items li {
-    font-size: 4 0%;
+    font-size: 40%;
   }
 }
 
@@ -1202,6 +1281,12 @@ nav .nav__menu > li:hover {
     -webkit-box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
             box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     top: 100%;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .slide-btn {
+    display: none;
   }
 }
 
@@ -1774,7 +1859,7 @@ footer {
 }
 
 .food-category {
-  width: 100vw;
+  width: 100%;
   background: #fff;
   -webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
           box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -1815,6 +1900,12 @@ footer {
   display: block;
 }
 
+@media screen and (max-width: 479px) {
+  .topping-category {
+    width: 60%;
+  }
+}
+
 .topping-category__list {
   display: none;
   position: absolute;
@@ -1837,9 +1928,33 @@ footer {
 }
 
 .toppings__container {
-  width: 1200px;
+  width: 75rem;
   margin: 0 auto;
   margin-bottom: 12em;
+}
+
+@media screen and (max-width: 1023px) {
+  .toppings__container {
+    width: 100vw;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .toppings__container {
+    padding: 1em;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .toppings__container {
+    padding: 1em;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .toppings__container {
+    padding: 2em;
+  }
 }
 
 .toppings__list {
@@ -1861,6 +1976,13 @@ footer {
   background: #fff;
   -webkit-box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
           box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+}
+
+@media screen and (max-width: 479px) {
+  .toppings__list .toppings__list__item {
+    width: 100%;
+    height: 300px;
+  }
 }
 
 .toppings__list .toppings__list__item .topping-category__list__info {
@@ -1892,6 +2014,10 @@ footer {
 .toppings__list .toppings__list__item:hover figure::after,
 .toppings__list .toppings__list__item:hover .topping-category__list__item__info {
   display: block;
+}
+
+.toppings__list .toppings__list__item figure img {
+  width: 100%;
 }
 
 .toppings__list .toppings__list__item figure::after {

@@ -16,10 +16,16 @@
     .sub-header__title {
       font-size: 3.75rem;
       font-weight: 600;
+      @include mobile-sm {
+        font-size: 3rem;
+      }
     }
     .sub-header__subtitle {
       margin-top: 1.5em;
       font-size: 1.2rem;
+      @include mobile-sm {
+        font-size: 0.95rem;
+      }
     }
   }
 }

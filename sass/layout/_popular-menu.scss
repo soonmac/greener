@@ -100,7 +100,7 @@
       font-size: 50%;
     }
     @include mobile-sm {
-      font-size: 4 0%;
+      font-size: 40%;
     }
     &:not(:first-child) {
       margin-left: 11.5em;
@@ -204,6 +204,9 @@
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
     top: 100%;
+  }
+  @include mobile-sm {
+    display: none;
   }
 }
 .prev-btn {
