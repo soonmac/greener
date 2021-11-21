@@ -5,11 +5,5 @@ const downBtn = document.querySelector(".dropdown-down");
 const dropdownLi = document.querySelectorAll(".nav__submenu > li")
 dropdown.addEventListener("click",function(){
     submenu.classList.toggle("on");
-
-    
+    downBtn.classList.toggle("open");
 })
-if (matchMedia("screen and (max-width: 479px)").matches) {
-    dropdown.addEventListener("click",function(){
-        downBtn.classList.toggle("open");
-    })
-}

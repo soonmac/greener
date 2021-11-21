@@ -1,0 +1,244 @@
+:root {
+  --green: #00584c;
+  --black: #333;
+}
+html {
+  color: white;
+  font-family:"Pretendard-Regular",sans-serif;
+}
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+/* 헤더 */
+.main-header {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.header__logo {
+  margin: 1em 0;
+}
+/* 내비 */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  background-color: var(--green);
+  width: 100vw;
+}
+.nav__menu {
+  display: flex;
+}
+.nav__menu > li > a {
+  font-weight: 600;
+  padding: 1.5em;
+}
+.nav__menu > li:not(:first-child){
+  margin-left: 2em;
+}
+/* 메인슬라이드 */
+.slide-container {
+  position: relative;
+  width: 1920px;
+  overflow: hidden;
+}
+.clearfix::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+.slide {
+  margin-left: 0;
+  width: 300%;
+}
+.slide > li {
+  float: left;
+}
+.slide__bullets {
+  position: absolute;
+  left: 50%;
+  bottom: 2em;
+  transform: translateX(-50%);
+}
+.slide__bullets > li {
+  float: left;
+  margin: 0 5px;
+}
+.bullet {
+  width: 10px;
+  height: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: transparent;
+  z-index: 5;
+}
+.slide__bullets .active {
+  background-color: white;
+}
+/* 인기메뉴 */
+.popular-menu {
+  color: var(--black);
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  flex-wrap: wrap;
+}
+.popular-menu__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-width: 1200px;
+  padding: 2rem;
+}
+.popular-menu__title {
+  color: var(--green);
+  font-family: 'Pretendard-Black';
+  font-size: 3rem;
+  letter-spacing: 0.05rem;
+}
+.popular-menu__tabs {
+  display: flex;
+}
+.popular-menu__tab {
+  position: relative;
+  font-weight: 600;
+}
+.popular-menu__tabs .active {
+  color: var(--green);
+}
+.popular-menu__tab:not(:first-child) {
+  margin-left: 1.5em;
+}
+.marker-left::before {
+  display: block;
+  content: "";
+  position: absolute;
+  left: -0.75em;
+  width: 2px;
+  height: 100%;
+  background-color: var(--green);
+}
+.popular-menu__slide {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 22.813rem;
+  background-color: #f2f2f2;
+}
+.popular-menu__slide-container {
+  position: relative;
+  width: 1200px;
+  height: 100%;
+  overflow: hidden;
+}
+.popular-menu__slide__items {
+  width: 200%;
+  position: absolute;
+  left: 2em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.popular-menu__slide__items > li {
+  float: left;
+}
+.popular-menu__slide__items > li:not(:first-child) {
+  margin-left: 11.5rem;
+}
+.popular-menu__slide__items > li figcaption {
+  text-align: center;
+}
+.slide-btn {
+  color: var(--green);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  padding: 3em;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.prev-btn {
+  left: 15rem;
+}
+.next-btn {
+  right: 15rem;
+}
+.slide-btn .material-icons {
+  font-size: 48px;
+}
+.popular-menu__slide__items figcaption {
+  line-height: 3.5;
+  font-size: 1.25rem;
+  font-weight: 600;
+
+}
+.banner-box {
+  margin: 7.5rem auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  flex-wrap: wrap;
+}
+/* 새소식 */
+.notice {
+  display: flex;
+  background-color: var(--green);
+  width: 42.5rem;
+  height: 21.25rem;
+  border-radius: 1.875rem 0;
+}
+.notice > h3 {
+  font-size: 50px;
+  font-family: 'Pretendard-Black';
+  letter-spacing: 0.05em;
+}
+.banner-howto {
+  width: 28.75rem;
+  height: 21.25rem;
+  border-radius: 0 1.875rem;
+  background: no-repeat center/cover url("../img/howto_banner.jpg");
+}
+.banner-membership {
+  width: 100%;
+  justify-self: center;
+  margin-top: 2.375rem;
+}
+.banner-membership img {
+  width: 100%;
+}
+.insta-thumbnails {
+  display: flex;
+  justify-content: center;
+  width: 1200px;
+  margin: 7.5rem auto;
+  flex-wrap: wrap;
+}
+.insta-thumbnails__list {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.insta-thumbnails__item {
+  width: 11.25rem;
+  height: 11.25rem;
+  margin-bottom: 1.25em;
+  color: transparent;
+  background-color: var(--green);
+}
+.row-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+footer {
+  background-color: var(--green);
+  width: 100%;
+}

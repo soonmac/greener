@@ -1,3 +1,6 @@
+터치슬라이드 관련 아티클
+https://medium.com/@claudiaconceic/infinite-plain-javascript-slider-click-and-touch-events-540c8bd174f2
+
 방울토마토(비타민): 풍부한 비타민B로 스트레스 해소에 도움을 주며 신장의 기능을 원활하게 해줍니다.
 오이(비타민): 풍부한 비타민 K로 단백질 합성, 뼈 성장에 도움을 줍니다.
 올리브(비타민): 비타민 A, 비타민 E는 노화 방지, 피부 미용에 도움을 줍니다.

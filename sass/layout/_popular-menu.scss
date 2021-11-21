@@ -75,7 +75,7 @@
   }
 }
 .popular-menu__slide__items {
-  width: 200%;
+  width: max-content;
   @extend %colCenter;
   left: 2em;
   @include laptop {
@@ -83,7 +83,6 @@
   }
   @include mobile-sm {
     padding: 0;
-    width: 600%;
   }
 
   li {
@@ -205,7 +204,7 @@
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
     top: 100%;
   }
-  @include mobile-sm {
+  @media screen and (max-width: 1023px) {
     display: none;
   }
 }

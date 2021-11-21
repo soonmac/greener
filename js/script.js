@@ -14,6 +14,7 @@ const offsetTime = 3500;
 //인기메뉴 슬라이드 관련 변수
 const popularSlide = document.querySelector(".popular-menu__slide__items");
 const popularSlides = Array.from(document.querySelectorAll(".popular-menu__slide__items > li"));
+const popularSlideLi = document.querySelector(".popular-menu__slide__items > li")
 const photoCount =popularSlides.length;
 const popularDuration = 600;
 let isDragging = false,
@@ -24,36 +25,44 @@ let isDragging = false,
 const btnNext=document.querySelector(".next-btn");
 const btnPrev=document.querySelector(".prev-btn");
 const popularSlideContainer = document.querySelector(".popular-menu__slide-container");
+const body = document.querySelector("body");
+
 //터치 슬라이드//
-touchSlide(popularSlide);
-// if (matchMedia("screen and (max-width: 479px)").matches) {
-//     touchSlide(popularSlide);
-// }
 
-
-function touchSlide(slideName) {
+popularSlides.forEach((slide,index)=> {
+    const slideImage = slide.querySelector('img')
+    // disable default image drag
+    slideImage.addEventListener('dragstart', (e) => e.preventDefault())
     // 터치 이벤트
-    slideName.addEventListener("touchstart", touchStart());
-    slideName.addEventListener("touchend", touchEnd);
-    slideName.addEventListener("touchmove", touchMove);
+    popularSlideContainer.addEventListener("touchstart", touchStart(index));
+    popularSlideContainer.addEventListener("touchend", touchEnd);
+    popularSlideContainer.addEventListener("touchmove", touchMove);
     
     // 마우스 이벤트
-    slideName.addEventListener("mousedown", touchStart());
-    slideName.addEventListener("mouseup", touchEnd);
-    slideName.addEventListener("mouseleave", touchEnd);
-    slideName.addEventListener("mousemove", touchMove);
+    popularSlideContainer.addEventListener("mousedown", touchStart(index));
+    popularSlideContainer.addEventListener("mouseup", touchEnd);
+    popularSlideContainer.addEventListener("mouseleave", touchEnd);
+    popularSlideContainer.addEventListener("mousemove", touchMove);
+})
 
+//우클릭 메뉴 뜨는거방지
+window.oncontextmenu = function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false
 }
 
 
 
 
-
-function touchStart() {
+function touchStart(index) {
     return function(event) {
+        photoIndex= index
         startPos = getPositionX(event);
+        console.log("startPos: "+ startPos);
         isDragging =  true;
         animationId = requestAnimationFrame(animation);
+        console.log(photoIndex);
     }
 }
 function touchEnd() {
@@ -62,21 +71,24 @@ function touchEnd() {
 
     const movedBy = currentTranslate - prevTranslate;
 
-    // 마우스가 왼쪽으로 가면  (전진)
-    if(movedBy < -50 && photoIndex <= photoCount) {
-        photoIndex += 1;
-    }
-    // 마우스가 오른쪽으로 가면 (후진)
-    if(movedBy > 50 && photoIndex > 0) {
-        photoIndex -= 1;
-    }
-    if(currentTranslate < -window.innerWidth) {
-        photoIndex = photoCount-1;
-    } 
-    setPositionByIndex();
+  // if moved enough negative then snap to next slide if there is one
+//   if (movedBy < -100 && photoIndex < photoCount-1) {
+//       photoIndex ++;
+//   }
+
+// //   // if moved enough positive then snap to previous slide if there is one
+//   if (movedBy > 100 && photoIndex > 0) {
+//       photoIndex --;
+//   }
+
+    // photoIndex %= photoCount;
+    console.log(photoIndex);
+  setPositionByIndex()
+  console.log("currentTrans  "+currentTranslate);
 }
 function touchMove(event) {
     if(isDragging) {
+        //실시간으로 내 포인터의 위치를 갱신
         const currentPosition = getPositionX(event);
         currentTranslate = prevTranslate + currentPosition - startPos
     }
@@ -88,17 +100,23 @@ function getPositionX(event) {
 // 애니메이션 관련
 function animation() {
     setSliderPosition();
-    if(isDragging) requestAnimationFrame(animation)
+    if(isDragging) requestAnimationFrame(animation);
 }
 // 터치해서 넘길 때 얼마나 이동시킬지 
 function setSliderPosition() {
+    const slideWidth = popularSlideLi.offsetWidth;
+    const slideFirstPos = -popularSlide.offsetWidth + slideWidth;
+    if(currentTranslate < slideFirstPos) {
+        currentTranslate = slideFirstPos;
+    } if (currentTranslate  > slideWidth) {
+        currentTranslate = 0;
+    }
     popularSlide.style.transform=`translate(${currentTranslate}px,-50%)`
 }
 function setPositionByIndex() {
-    currentTranslate = photoIndex * -popularSlideContainer.offsetWidth*0.35;
-
+    // currentTranslate = photoIndex * -popularSlideLi.offsetWidth;
     prevTranslate = currentTranslate;
-    setSliderPosition();
+    setSliderPosition()
 }
 
 
