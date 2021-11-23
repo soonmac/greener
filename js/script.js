@@ -1,15 +1,14 @@
+"use-strict";
+// 메인 슬라이드
 const slideContainer = document.querySelector(".slide-container");
 const slide = document.querySelector(".slide");
-let slides = document.querySelectorAll(".slide>li")
+let slides = Array.from(document.querySelectorAll(".slide>li"));
 const slideImgs = document.querySelectorAll(".slide > li > a > img")
 let currentSlide = 0;
 const duration = 400;
 let timerId=0;
-let photoIndex=0;
 let bullet = 0;
 const offsetTime = 3500;
-
-
 
 //인기메뉴 슬라이드 관련 변수
 const popularSlide = document.querySelector(".popular-menu__slide__items");
@@ -17,6 +16,7 @@ const popularSlides = Array.from(document.querySelectorAll(".popular-menu__slide
 const popularSlideLi = document.querySelector(".popular-menu__slide__items > li")
 const photoCount =popularSlides.length;
 const popularDuration = 600;
+let photoIndex=0;
 let isDragging = false,
     startPos = 0,
     currentTranslate=0,
@@ -27,64 +27,94 @@ const btnPrev=document.querySelector(".prev-btn");
 const popularSlideContainer = document.querySelector(".popular-menu__slide-container");
 const body = document.querySelector("body");
 
-//터치 슬라이드//
-
-popularSlides.forEach((slide,index)=> {
-    const slideImage = slide.querySelector('img')
-    // disable default image drag
-    slideImage.addEventListener('dragstart', (e) => e.preventDefault())
-    // 터치 이벤트
-    popularSlideContainer.addEventListener("touchstart", touchStart(index));
-    popularSlideContainer.addEventListener("touchend", touchEnd);
-    popularSlideContainer.addEventListener("touchmove", touchMove);
-    
-    // 마우스 이벤트
-    popularSlideContainer.addEventListener("mousedown", touchStart(index));
-    popularSlideContainer.addEventListener("mouseup", touchEnd);
-    popularSlideContainer.addEventListener("mouseleave", touchEnd);
-    popularSlideContainer.addEventListener("mousemove", touchMove);
-})
+// 우클릭 방지
+PreventRightClick(popularSlideContainer);
 
 //우클릭 메뉴 뜨는거방지
-window.oncontextmenu = function (event) {
-    event.preventDefault();
-    event.stopPropagation();
-    return false
+function PreventRightClick(area) {
+    area.oncontextmenu = function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        return false
+    }
 }
 
+let mobileFlag = true;
+class Swiper {
+    constructor(area,slideArray) {
+        this.area = area;
+        this.slideArray = slideArray;
 
+    }
+    swiper() {
+            this.slideArray.forEach((item,index) => {
+                const slideImage = item.querySelector('img');
+                // disable default image drag
+                if(slideImage) {
+                    slideImage.addEventListener('dragstart', (e) => e.preventDefault());
+                }
+                // 터치 이벤트
+                this.area.addEventListener("touchstart", touchStart(index));
+                this.area.addEventListener("touchend", touchEnd);
+                this.area.addEventListener("touchmove", touchMove);
+                
+                // 마우스 이벤트
+                this.area.addEventListener("mousedown", touchStart(index));
+                this.area.addEventListener("mouseup", touchEnd);
+                this.area.addEventListener("mouseleave", touchEnd);
+                this.area.addEventListener("mousemove", touchMove);
+            
+            })
+    }
+    destroy() {
+        this.slideArray.forEach((item,index) => {
+            const slideImage = item.querySelector('img');
+            // disable default image drag
+            if(slideImage) {
+                slideImage.removeEventListener('dragstart', (e) => e.preventDefault());
+            }
+            // 터치 이벤트
+            this.area.removeEventListener("touchstart", touchStart(index));
+            this.area.removeEventListener("touchend", touchEnd);
+            this.area.removeEventListener("touchmove", touchMove);
+            
+            // 마우스 이벤트
+            this.area.removeEventListener("mousedown", touchStart(index));
+            this.area.removeEventListener("mouseup", touchEnd);
+            this.area.removeEventListener("mouseleave", touchEnd);
+            this.area.removeEventListener("mousemove", touchMove);
+        
+        })
+    }
+    
+}
 
+class PopularSwiper extends Swiper{
+};
+const popularSwiper = new PopularSwiper(popularSlideContainer,popularSlides);
+window.addEventListener("resize", function(){
+    if(window.innerWidth <= 1023){
+        popularSwiper.swiper();
+    }else {
+        popularSwiper.destroy();
+    }
+})
+if (window.matchMedia("(max-width: 1023px)").matches) {
+    popularSwiper.swiper();
+}
 
-function touchStart(index) {
+// 터치슬라이드 관련 함수들
+function touchStart() {
     return function(event) {
-        photoIndex= index
         startPos = getPositionX(event);
-        console.log("startPos: "+ startPos);
         isDragging =  true;
         animationId = requestAnimationFrame(animation);
-        console.log(photoIndex);
     }
 }
 function touchEnd() {
     isDragging =  false;
     cancelAnimationFrame(animationId);
-
-    const movedBy = currentTranslate - prevTranslate;
-
-  // if moved enough negative then snap to next slide if there is one
-//   if (movedBy < -100 && photoIndex < photoCount-1) {
-//       photoIndex ++;
-//   }
-
-// //   // if moved enough positive then snap to previous slide if there is one
-//   if (movedBy > 100 && photoIndex > 0) {
-//       photoIndex --;
-//   }
-
-    // photoIndex %= photoCount;
-    console.log(photoIndex);
   setPositionByIndex()
-  console.log("currentTrans  "+currentTranslate);
 }
 function touchMove(event) {
     if(isDragging) {
@@ -114,7 +144,6 @@ function setSliderPosition() {
     popularSlide.style.transform=`translate(${currentTranslate}px,-50%)`
 }
 function setPositionByIndex() {
-    // currentTranslate = photoIndex * -popularSlideLi.offsetWidth;
     prevTranslate = currentTranslate;
     setSliderPosition()
 }

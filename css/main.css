@@ -1098,6 +1098,8 @@ nav .nav__menu > li:hover {
   width: -moz-max-content;
   width: max-content;
   left: 2em;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
 }
 
 @media screen and (max-width: 1279px) {
@@ -1113,6 +1115,10 @@ nav .nav__menu > li:hover {
 }
 
 .popular-menu__slide__items li {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   position: relative;
   float: left;
   overflow: hidden;

@@ -84,8 +84,10 @@
   @include mobile-sm {
     padding: 0;
   }
+  transition: 0.15s;
 
   li {
+    user-select: none;
     position: relative;
     float: left;
     overflow: hidden;
