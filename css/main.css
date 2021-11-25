@@ -323,8 +323,17 @@ html {
     width: 60%;
   }
   .page-container .popular-menu__slide__items div img {
-    width: 70%;
-    height: 70%;
+    width: 60%;
+    height: 60%;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .page-container .popular-menu__slide__items {
+    font-size: 50%;
+  }
+  .page-container .popular-menu__slide__items div {
+    width: 60%;
   }
 }
 
@@ -882,7 +891,7 @@ nav .nav__menu > li:hover {
 
 @media screen and (max-width: 479px) {
   .slide li a {
-    height: 90vh;
+    height: 60vh;
   }
 }
 
@@ -1080,6 +1089,12 @@ nav .nav__menu > li:hover {
   background-color: #f2f2f2;
 }
 
+@media screen and (max-width: 479px) {
+  .popular-menu__slide {
+    height: 18rem;
+  }
+}
+
 .popular-menu__slide-container {
   position: relative;
   width: 75em;
@@ -1144,12 +1159,18 @@ nav .nav__menu > li:hover {
 
 @media screen and (max-width: 479px) {
   .popular-menu__slide__items li {
-    font-size: 40%;
+    font-size: 30%;
   }
 }
 
 .popular-menu__slide__items li:not(:first-child) {
   margin-left: 11.5em;
+}
+
+@media screen and (max-width: 1279px) {
+  .popular-menu__slide__items li:not(:first-child) {
+    margin-left: 0;
+  }
 }
 
 .popular-menu__slide__items li div {

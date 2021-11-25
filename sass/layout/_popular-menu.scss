@@ -64,6 +64,9 @@
   width: 100%;
   height: 22.813rem;
   background-color: $color--gray;
+  @include mobile-sm {
+    height: 18rem;
+  }
 }
 .popular-menu__slide-container {
   position: relative;
@@ -101,10 +104,13 @@
       font-size: 50%;
     }
     @include mobile-sm {
-      font-size: 40%;
+      font-size: 30%;
     }
     &:not(:first-child) {
       margin-left: 11.5em;
+      @include laptop {
+        margin-left: 0;
+      }
     }
     div {
       @extend %centerflex;

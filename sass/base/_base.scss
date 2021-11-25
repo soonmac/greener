@@ -54,9 +54,17 @@ html {
       div {
         width: 60%;
         img {
-          width: 70%;
-          height: 70%;
+          width: 60%;
+          height: 60%;
         }
+      }
+    }
+  }
+  @include mobile-sm {
+    .popular-menu__slide__items {
+      font-size: 50%;
+      div {
+        width: 60%;
       }
     }
   }
