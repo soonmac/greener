@@ -1,5 +1,6 @@
 # Greener
 <그리너> 홈페이지 제작
+* 보러가기 : https://soonmac.github.io/greener/
 
 ## 프로젝트 목표
 
